@@ -44,12 +44,51 @@ public class LinkedList {
 
     public void append(int value) {
         Node newNode = new Node(value);
+
+        if (length == 0) {
+            head = newNode;
+        } else {
+            tail.next = newNode;
+        }
+
+        tail = newNode;
+        length++;
+    }
+
+    public Node removeLast() {
+        if (length == 0) { // for when we start with a length of 0
+            return null;
+        }
+
+        Node temp = head;
+        Node prev = head;
+
+        while (temp.next != null) { // if we have 2 or more items in a list
+            prev = temp;
+            temp = temp.next;
+        }
+
+        tail = prev;
+        tail.next = null;
+        length--;
+
+        if (length == 0) { // edge case if there is only one item in the list after removal
+            head = null;
+            tail = null;
+        }
+
+        return temp;
+    }
+
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+
         if (length == 0) {
             head = newNode;
             tail = newNode;
         } else {
-            tail.next = newNode;
-            tail = newNode;
+            newNode.next = head;
+            head = newNode;
         }
 
         length++;
