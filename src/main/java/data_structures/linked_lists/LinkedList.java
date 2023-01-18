@@ -112,8 +112,9 @@ public class LinkedList {
         return temp;
     }
 
+    // get a Node at a particular index
     public Node get (int index) {
-        if (index < 0 || index >= length) {
+        if (index < 0 || index >= length) { // index out of range
             return null;
         }
 
@@ -123,5 +124,18 @@ public class LinkedList {
         }
 
         return temp;
+    }
+
+    // set the value of a Node at a particular index
+    // boolean to indicate whether we were able to set that value or not
+    public boolean set(int index, int value) {
+        Node temp = get(index);
+
+        if (temp != null) {
+            temp.value = value;
+            return true;
+        }
+
+        return false;
     }
 }
