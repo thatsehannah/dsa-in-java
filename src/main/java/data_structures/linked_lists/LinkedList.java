@@ -138,4 +138,29 @@ public class LinkedList {
 
         return false;
     }
+
+    public boolean insert(int index, int value) {
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+
+        if (index == length) {
+            append(value);
+            return true;
+        }
+
+        if (index < 0 || index > length) {
+            return false;
+        }
+
+        Node temp = get(index - 1); // gets the Node before the index of the Node where we want to insert
+        Node newNode = new Node(value);
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+
+        return true;
+    }
 }
