@@ -43,6 +43,8 @@ public class LinkedList {
         System.out.println("Length: " + length);
     }
 
+    // adding Node to end of linked list
+    // O(1)
     public void append(int value) {
         Node newNode = new Node(value);
 
@@ -56,6 +58,8 @@ public class LinkedList {
         length++;
     }
 
+    // adding Node to front of linked list
+    // O(1)
     public void prepend(int value) {
         Node newNode = new Node(value);
 
@@ -70,6 +74,8 @@ public class LinkedList {
         length++;
     }
 
+    // removing the last Node in linked list
+    // O(n)
     public Node removeLast() {
         if (length == 0) { // for when we start with a length of 0
             return null;
@@ -95,6 +101,8 @@ public class LinkedList {
         return temp;
     }
 
+    // removing the first Node in linked list
+    // O(1)
     public Node removeFirst() {
         if (length == 0) {
             return null;
@@ -113,6 +121,7 @@ public class LinkedList {
     }
 
     // get a Node at a particular index
+    // O(n)
     public Node get (int index) {
         if (index < 0 || index >= length) { // index out of range
             return null;
@@ -127,7 +136,7 @@ public class LinkedList {
     }
 
     // set the value of a Node at a particular index
-    // boolean to indicate whether we were able to set that value or not
+    // O(n)
     public boolean set(int index, int value) {
         Node temp = get(index);
 
@@ -139,6 +148,8 @@ public class LinkedList {
         return false;
     }
 
+    // insert a Node at a particular index
+    // O(n)
     public boolean insert(int index, int value) {
         if (index == 0) {
             prepend(value);
@@ -164,6 +175,8 @@ public class LinkedList {
         return true;
     }
 
+    // remove a node at a particular index
+    // O(n)
     public Node remove(int index) {
         if (index < 0 || index >= length) {
             return null;
@@ -185,5 +198,23 @@ public class LinkedList {
         length--;
 
         return temp;
+    }
+
+    // reverse a linked list in place
+    // O(n)
+    public void reverse() {
+        Node temp = head;
+        head = tail;
+        tail = temp;
+
+        Node after = temp.next;
+        Node before = null;
+
+        for (int i = 0; i < length; i++) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
     }
 }
