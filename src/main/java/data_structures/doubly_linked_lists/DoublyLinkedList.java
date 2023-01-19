@@ -42,4 +42,20 @@ public class DoublyLinkedList {
     public void getLength() {
         System.out.println("Length: " + length);
     }
+
+    // adding a Node to the end of linked list
+    // O(1)
+    public void append(int value) {
+        Node newNode = new Node(value);
+
+        if (length == 0) {
+            head = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+
+        }
+        tail = newNode;
+        length++;
+    }
 }
