@@ -1,5 +1,7 @@
 package data_structures.hash_tables;
 
+import java.util.ArrayList;
+
 public class HashTable {
     class Node {
         private String key;
@@ -24,7 +26,7 @@ public class HashTable {
             System.out.print(i + ": ");
             Node temp = dataMap[i];
             while (temp != null) {
-                System.out.print("{" + temp.key + "= " + temp.value + "} => ");
+                System.out.print("{" + temp.key + " = " + temp.value + "} -> ");
                 temp = temp.next;
             }
             System.out.print("{null}\n");
@@ -42,7 +44,6 @@ public class HashTable {
 
         return hash;
     }
-
 
     // inserts a key-value pair into hash table
     public void set(String key, int value) {
@@ -75,5 +76,20 @@ public class HashTable {
         }
 
         return 0;
+    }
+
+    // prints all the keys in hash table
+    public ArrayList<String> keys() {
+        ArrayList<String> allKeys = new ArrayList<>();
+
+        for (int i = 0; i < dataMap.length; i++) {
+            Node temp = dataMap[i];
+            while (temp != null) {
+                allKeys.add(temp.key);
+                temp = temp.next;
+            }
+        }
+
+        return allKeys;
     }
 }
