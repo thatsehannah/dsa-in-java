@@ -21,12 +21,13 @@ public class HashTable {
 
     public void printTable() {
         for (int i = 0; i < dataMap.length; i++) {
-            System.out.println(i + ":");
+            System.out.print(i + ": ");
             Node temp = dataMap[i];
             while (temp != null) {
                 System.out.print("{" + temp.key + "= " + temp.value + "} => ");
                 temp = temp.next;
             }
+            System.out.print("{null}\n");
         }
     }
 
@@ -36,9 +37,43 @@ public class HashTable {
         char[] keyChars = key.toCharArray();
         for (int i = 0; i < keyChars.length; i++) {
             int asciiValue = keyChars[i];
-            hash += (asciiValue * 23) % dataMap.length; // chose the number 23 because it is a prime number, which provide more randomness
+            hash = (hash + asciiValue * 23) % dataMap.length; // chose the number 23 because it is a prime number, which provide more randomness
         }
 
         return hash;
+    }
+
+
+    // inserts a key-value pair into hash table
+    public void set(String key, int value) {
+        int index = hash(key);
+        Node newNode = new Node(key, value);
+
+        if (dataMap[index] == null) {
+            dataMap[index] = newNode;
+        } else {
+            Node temp = dataMap[index];
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+
+            temp.next = newNode;
+        }
+    }
+
+    // gets the value of a specific key in hash table
+    public int get(String key) {
+        int index = hash(key);
+        Node temp = dataMap[index];
+
+        while (temp != null) {
+            if (temp.key == key) {
+                return temp.value;
+            }
+
+            temp = temp.next;
+        }
+
+        return 0;
     }
 }
