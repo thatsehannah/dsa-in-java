@@ -98,6 +98,8 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    // removes the head from the doubly linked list
+    // O(1)
     public Node removeFirst() {
         if (length == 0) {
             return null;
@@ -117,4 +119,30 @@ public class DoublyLinkedList {
         length--;
         return temp;
     }
+
+    // gets a Node at a specific index in a doubly linked list
+    // O(n)
+    public Node get(int index) {
+        if (index < 0 || index >= length) {
+            return null;
+        }
+
+        Node temp;
+
+        if (index < length/2) {
+            temp = head;
+            for (int i = 0; i < index; i++) {
+                temp = temp.next;
+            }
+        } else {
+            temp = tail;
+            for (int i = length - 1; i > index; i--) {
+                temp = temp.prev;
+            }
+        }
+
+        return temp;
+    }
+
+
 }
