@@ -8,5 +8,17 @@ public class Main {
 
         myDLL.prepend(6);
         myDLL.printList();
+
+        myDLL.removeFirst();
+        myDLL.printList();
+
+        myDLL.removeFirst();
+        myDLL.printList();
+
+        myDLL.removeFirst();
+        myDLL.printList();
+
+        myDLL.removeFirst();
+        myDLL.printList();
     }
 }
