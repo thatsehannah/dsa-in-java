@@ -34,6 +34,7 @@ public class HashTable {
     }
 
     // hash function that will be used to get the address of the key in the array
+    // O(1)
     private int hash(String key) {
         int hash = 0;
         char[] keyChars = key.toCharArray();
@@ -46,6 +47,7 @@ public class HashTable {
     }
 
     // inserts a key-value pair into hash table
+    // O(1)
     public void set(String key, int value) {
         int index = hash(key);
         Node newNode = new Node(key, value);
@@ -63,6 +65,7 @@ public class HashTable {
     }
 
     // gets the value of a specific key in hash table
+    // O(1)
     public int get(String key) {
         int index = hash(key);
         Node temp = dataMap[index];
