@@ -1,10 +1,6 @@
 package data_structures.linked_lists;
 
 public class LinkedList {
-    private Node head;
-    private Node tail;
-    private int length;
-
     class Node {
         int value;
         Node next;
@@ -14,6 +10,10 @@ public class LinkedList {
             next = null;
         }
     }
+
+    private Node head;
+    private Node tail;
+    private int length;
 
     public LinkedList(int value) {
         Node newNode = new Node(value);
