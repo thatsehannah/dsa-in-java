@@ -43,7 +43,7 @@ public class DoublyLinkedList {
         System.out.println("Length: " + length);
     }
 
-    // adding a Node to the end of linked list
+    // adds a Node to the end of a doubly linked list
     // O(1)
     public void append(int value) {
         Node newNode = new Node(value);
@@ -59,6 +59,25 @@ public class DoublyLinkedList {
         length++;
     }
 
+    // adds a Node to the beginning of a doubly linked list
+    // O(1)
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        }
+
+        length++;
+    }
+
+    // removes the tail from the doubly linked list
+    // O(1)
     public Node removeLast() {
         if (length == 0) {
             return null;

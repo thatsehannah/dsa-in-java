@@ -6,13 +6,7 @@ public class Main {
         myDLL.append(8);
         myDLL.printList();
 
-        myDLL.removeLast();
-        myDLL.printList();
-
-        myDLL.removeLast();
-        myDLL.printList();
-
-        myDLL.removeLast();
+        myDLL.prepend(6);
         myDLL.printList();
     }
 }
