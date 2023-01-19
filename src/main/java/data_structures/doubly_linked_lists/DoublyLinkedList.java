@@ -121,7 +121,7 @@ public class DoublyLinkedList {
     }
 
     // gets a Node at a specific index in a doubly linked list
-    // O(n)
+    // O(logn)
     public Node get(int index) {
         if (index < 0 || index >= length) {
             return null;
@@ -144,6 +144,8 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    // sets a Node's value at a specific index in doubly linked list
+    // O(logn)
     public boolean set(int index, int value) {
         Node temp = get(index);
 
@@ -153,6 +155,36 @@ public class DoublyLinkedList {
         }
 
         return false;
+    }
+
+    // inserts a Node a specific index in doubly linked list
+    // O(logn)
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) {
+            return false;
+        }
+
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+
+        if (index == length) {
+            append(value);
+            return true;
+        }
+
+        Node newNode = new Node(value);
+        Node before = get(index - 1);
+        Node after = before.next;
+
+        newNode.prev = before;
+        newNode.next = after;
+        after.prev = newNode;
+        before.next = newNode;
+        length++;
+
+        return true;
     }
 
 }
