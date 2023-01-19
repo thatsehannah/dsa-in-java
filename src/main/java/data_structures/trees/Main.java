@@ -11,7 +11,9 @@ public class Main {
         myBST.insert(82);
         myBST.insert(27);
 
-        System.out.println(myBST.root.left.right.value); // will return 27
+        System.out.println("Does tree contain 18? " + myBST.contains(18));
+        System.out.println("Does tree contain 30? " + myBST.contains(30));
+
 
     }
 }

@@ -13,6 +13,8 @@ public class BinarySearchTree {
 
     Node root;
 
+    // inserts a Node into a BST
+    // O(logn)
     public boolean insert(int value) {
         Node newNode = new Node(value);
 
@@ -23,11 +25,11 @@ public class BinarySearchTree {
 
         Node temp = root;
         while (temp != null) {
-            if (temp.value == value) {
+            if (value == temp.value) {
                 return false;
             }
 
-            if (temp.value < value) {
+            if (value > temp.value) {
                 if (temp.right == null) {
                     temp.right = newNode;
                     return true;
@@ -41,6 +43,23 @@ public class BinarySearchTree {
                 }
 
                 temp = temp.left;
+            }
+        }
+
+        return false;
+    }
+
+    // checks if a value exists in binary search tree
+    // O(logn)
+    public boolean contains(int value) {
+        Node temp = root;
+        while (temp != null) {
+            if (value == temp.value) {
+                return true;
+            } else if (value < temp.value) {
+                temp = temp.left;
+            } else {
+                temp = temp.right;
             }
         }
 
