@@ -29,4 +29,16 @@ public class HashTable {
             }
         }
     }
+
+    // hash function that will be used to get the address of the key in the array
+    private int hash(String key) {
+        int hash = 0;
+        char[] keyChars = key.toCharArray();
+        for (int i = 0; i < keyChars.length; i++) {
+            int asciiValue = keyChars[i];
+            hash += (asciiValue * 23) % dataMap.length; // chose the number 23 because it is a prime number, which provide more randomness
+        }
+
+        return hash;
+    }
 }
