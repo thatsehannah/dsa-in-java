@@ -10,8 +10,8 @@ public class Main {
         myDLL.append(12);
         myDLL.printList();
 
-        System.out.println("Value at index 1: " + myDLL.get(1).value);
-        System.out.println("Value at index 3: " + myDLL.get(3).value);
+        myDLL.set(4, 100);
+        myDLL.printList();
 
     }
 }
