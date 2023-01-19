@@ -187,4 +187,30 @@ public class DoublyLinkedList {
         return true;
     }
 
+    // removes a Node a specific index in doubly linked list
+    // O(logn)
+    public Node remove(int index) {
+        if (index < 0 || index >= length) {
+            return null;
+        }
+
+        if (index == 0) {
+            return removeFirst();
+        }
+
+        if (index == length - 1) {
+            return removeLast();
+        }
+
+        Node temp = get(index);
+
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+        temp.prev = null;
+        temp.next = null;
+        length--;
+
+        return temp;
+    }
+
 }

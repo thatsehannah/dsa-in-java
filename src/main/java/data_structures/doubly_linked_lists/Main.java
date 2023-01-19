@@ -13,5 +13,8 @@ public class Main {
         myDLL.insert(3, 10);
         myDLL.printList();
 
+        myDLL.remove(3);
+        myDLL.printList();
+
     }
 }
