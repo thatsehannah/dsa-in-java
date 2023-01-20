@@ -1,8 +1,5 @@
 package data_structures.hash_tables;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         HashTable myHashTable = new HashTable();
