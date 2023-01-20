@@ -49,6 +49,28 @@ public class BinarySearchTree {
         return false;
     }
 
+    private Node rInsert(Node currentNode, int value) {
+        if (currentNode == null) {
+            return new Node(value);
+        }
+
+        if (value < currentNode.value) {
+            currentNode.left = rInsert(currentNode.left, value);
+        } else {
+            currentNode.right = rInsert(currentNode.right, value);
+        }
+
+        return currentNode;
+    }
+
+    public void rInsert(int value) {
+        if (root == null) {
+            root = new Node(value);
+            return;
+        }
+        rInsert(root, value);
+    }
+
     // checks if a value exists in binary search tree
     // O(logn)
     public boolean contains(int value) {
