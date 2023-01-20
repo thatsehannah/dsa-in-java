@@ -6,12 +6,16 @@ public class Main {
         myGraph.addVertex("A");
         myGraph.addVertex("B");
         myGraph.addVertex("C");
+        myGraph.addVertex("D");
 
         myGraph.addEdge("A", "B");
         myGraph.addEdge("A", "C");
-        myGraph.addEdge("B", "C");
+        myGraph.addEdge("A", "D");
+        myGraph.addEdge("B", "D");
+        myGraph.addEdge("D", "C");
         myGraph.printGraph();
-        myGraph.removeEdge("A", "B");
+
+        myGraph.removeVertex("D");
         myGraph.printGraph();
     }
 }
