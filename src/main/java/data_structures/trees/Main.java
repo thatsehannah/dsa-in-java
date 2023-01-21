@@ -17,6 +17,16 @@ public class Main {
         System.out.println("Root->Left: " + myBST.root.left.value);
         System.out.println("Root->Right: " + myBST.root.right.value);
 
+        myBST.deleteNode(2);
 
+        /*
+         *           3
+         *          / \
+         *         1   null
+         * */
+
+        System.out.println("Root: " + myBST.root.value);
+        System.out.println("Root->Left: " + myBST.root.left.value);
+        System.out.println("Root->Right: " + myBST.root.right);
     }
 }
