@@ -4,11 +4,13 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] array1 = {1, 3, 7, 8};
-        int[] array2 = {2, 4, 5, 6};
-        System.out.println(Arrays.toString(merge(array1, array2)));
+        int[] myArray = {1, 3, 7, 8, 2, 4, 5, 6};
+        System.out.println("Original array: " + Arrays.toString(myArray));
+        System.out.println("Sorted array: " + Arrays.toString(mergeSort(myArray)));
     }
 
+    // O(log n)
+    // Together (merge and mergeSort) = O (n*logn)
     static int[] mergeSort(int[] array) {
         if (array.length == 1) {
             return array;
@@ -22,6 +24,7 @@ public class MergeSort {
     }
 
     // Helper method that puts 2 arrays together
+    // O(n)
     static int[] merge(int[] array1, int[] array2) {
         int[] combined = new int[array1.length + array2.length];
         int cIndex = 0; // index for combined array
