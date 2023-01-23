@@ -1,17 +1,21 @@
 package data_structures.trees;
 
 public class BinarySearchTree {
-    class Node {
-        int value;
-        Node left;
-        Node right;
+    public class Node {
+        public int value;
+        public Node left;
+        public Node right;
 
-        Node(int value) {
+        public Node(int value) {
             this.value = value;
         }
     }
 
     Node root;
+
+    public Node getRoot() {
+        return root;
+    }
 
     // inserts a Node into a BST
     // O(logn)
